@@ -248,3 +248,33 @@ Suggested first steps:
 7. Polish the experience for a business demo.
 
 Have fun building something that helps Perseus Equipment make faster, smarter decisions.
+
+## Local analytics dashboard (this repo)
+
+This workspace includes a **Next.js** web app that reads `perseus_equipment_database.db` at the repo root (read-only SQLite via `better-sqlite3`). It is meant to run **locally** for demos.
+
+### Prerequisites
+
+- **Node.js 20+** and npm
+- The file **`perseus_equipment_database.db`** in the project root (same folder as `package.json`)
+
+### Setup and run
+
+```bash
+npm install
+npm run db:index
+npm run dev
+```
+
+Open **http://localhost:3000**. Use **Ctrl+K** (or **Cmd+K**) to search customers and invoices.
+
+Use the **Archived included / Finalized only** control in the header to choose whether posted revenue and related metrics count **archived** invoices alongside **finalized**, or **finalized** invoices only (preference is saved in your browser).
+
+For a production-mode local run:
+
+```bash
+npm run build
+npm start
+```
+
+If the database file is missing, the app shows an error at startup pointing you to place the file at the repo root.
